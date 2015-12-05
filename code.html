@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Documentation for the code &mdash; polyssifier 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="polyssifier 0.1 documentation" href="index.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="includeme.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="includeme.html" title="&lt;no title&gt;"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">polyssifier 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="documentation-for-the-code">
+<h1>Documentation for the code<a class="headerlink" href="#documentation-for-the-code" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="example-doctest">
+<h2>Example &#8211; Doctest<a class="headerlink" href="#example-doctest" title="Permalink to this headline">¶</a></h2>
+<p>Run the doc tests on the sample input</p>
+<span class="target" id="module-polyssifier"></span><p>This module computes the baseline results by applying various classifiers.
+The classifiers used here are nearest neighbors, linear SVM, RBF SVM, decision
+tree, random forest, logistic regression, naive bayes, and LDA.</p>
+<dl class="function">
+<dt id="polyssifier.classify">
+<code class="descclassname">polyssifier.</code><code class="descname">classify</code><span class="sig-paren">(</span><em>data</em>, <em>labels</em>, <em>(train_idx</em>, <em>test_idx)</em>, <em>classifier=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/polyssifier.html#classify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polyssifier.classify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Classifies given a fold and a model.</p>
+<dl class="docutils">
+<dt>data: array_like</dt>
+<dd>2d matrix of observations vs variables</dd>
+<dt>labels: list or array_like</dt>
+<dd>1d vector of labels for each data observation</dd>
+<dt>(train_idx, test_idx) <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
+<dd>set of indices for splitting data into train and test</dd>
+<dt>classifier: sklearn classifier object</dt>
+<dd>initialized classifier with &#8220;fit&#8221; and &#8220;predict_proba&#8221; methods.</dd>
+</dl>
+<p>WRITEME</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="polyssifier.get_classifier">
+<code class="descclassname">polyssifier.</code><code class="descname">get_classifier</code><span class="sig-paren">(</span><em>name</em>, <em>model</em>, <em>param</em>, <em>data=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/polyssifier.html#get_classifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polyssifier.get_classifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the classifier for the model.</p>
+<dl class="docutils">
+<dt>name: str</dt>
+<dd>Classifier name.</dd>
+</dl>
+<p>model: WRITEME
+param: WRITEME
+data: array_like, optional</p>
+<p>WRITEME</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="polyssifier.get_score">
+<code class="descclassname">polyssifier.</code><code class="descname">get_score</code><span class="sig-paren">(</span><em>data</em>, <em>labels</em>, <em>fold_pairs</em>, <em>name</em>, <em>model</em>, <em>param</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/polyssifier.html#get_score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polyssifier.get_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to get score for a classifier.</p>
+<dl class="docutils">
+<dt>data: array_like</dt>
+<dd>Data from which to derive score.</dd>
+<dt>labels: array_like or list</dt>
+<dd>Corresponding labels for each sample.</dd>
+<dt>fold_pairs: list of pairs of array_like</dt>
+<dd>A list of train/test indicies for each fold
+dhjelm(Why can&#8217;t we just use the KFold object?)</dd>
+<dt>name: str</dt>
+<dd>Name of classifier.</dd>
+</dl>
+<p>model: WRITEME
+param: WRITEME</p>
+<blockquote>
+<div>Parameters for the classifier.</div></blockquote>
+<p>classifier: WRITEME
+fScore: WRITEME</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="polyssifier.load_data">
+<code class="descclassname">polyssifier.</code><code class="descname">load_data</code><span class="sig-paren">(</span><em>source_dir</em>, <em>data_pattern</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/polyssifier.html#load_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polyssifier.load_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the data from multiple sources if provided.</p>
+<p>source_dir: str
+data_pattern: str</p>
+<p>data: array_like</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="polyssifier.load_labels">
+<code class="descclassname">polyssifier.</code><code class="descname">load_labels</code><span class="sig-paren">(</span><em>source_dir</em>, <em>label_pattern</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/polyssifier.html#load_labels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polyssifier.load_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to load labels file.</p>
+<dl class="docutils">
+<dt>source_dir: str</dt>
+<dd>Source directory of labels</dd>
+<dt>label_pattern: str</dt>
+<dd>unix regex for label files.</dd>
+</dl>
+<dl class="docutils">
+<dt>labels: array_like</dt>
+<dd>A numpy vector of the labels.</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="polyssifier.main">
+<code class="descclassname">polyssifier.</code><code class="descname">main</code><span class="sig-paren">(</span><em>source_dir</em>, <em>ksplit</em>, <em>out_dir</em>, <em>data_pattern</em>, <em>label_pattern</em>, <em>test_mode</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/polyssifier.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polyssifier.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main function for polyssifier.</p>
+<p>source_dir: str
+ksplit: int
+out_dir: str
+data_pattern: str</p>
+<blockquote>
+<div>POSIX-type regex string for list of paths.</div></blockquote>
+<dl class="docutils">
+<dt>label_pattern: str</dt>
+<dd>POSIX-type regex string for list of paths.</dd>
+</dl>
+<p>test_mode: bool</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="polyssifier.make_argument_parser">
+<code class="descclassname">polyssifier.</code><code class="descname">make_argument_parser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/polyssifier.html#make_argument_parser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polyssifier.make_argument_parser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an ArgumentParser to read the options for this script from
+sys.argv</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="polyssifier.make_classifiers">
+<code class="descclassname">polyssifier.</code><code class="descname">make_classifiers</code><span class="sig-paren">(</span><em>data_shape</em>, <em>ksplit</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/polyssifier.html#make_classifiers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polyssifier.make_classifiers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that makes classifiers each with a number of folds.</p>
+<p>Returns two dictionaries for the classifiers and their parameters, using
+<cite>data_shape</cite> and <cite>ksplit</cite> in construction of classifiers.</p>
+<dl class="docutils">
+<dt>data_shape <span class="classifier-delimiter">:</span> <span class="classifier">tuple of int</span></dt>
+<dd>Shape of the data.  Must be a pair of integers.</dd>
+<dt>ksplit <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd>Number of folds.</dd>
+</dl>
+<dl class="docutils">
+<dt>classifiers: dict</dt>
+<dd>The dictionary of classifiers to be used.</dd>
+<dt>params: dict</dt>
+<dd>A dictionary of list of dictionaries of the corresponding
+params for each classifier.</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Documentation for the code</a><ul>
+<li><a class="reference internal" href="#example-doctest">Example &#8211; Doctest</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="includeme.html"
+                        title="previous chapter">&lt;no title&gt;</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/code.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="includeme.html" title="&lt;no title&gt;"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">polyssifier 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Sergey Plis, Devon Hjelm, Alvaro Ulloa, Vamsi Potluru.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>
